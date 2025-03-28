@@ -1,7 +1,17 @@
-이름 : <input type="text" name="irum"><br>
-메일 : <input type="text" name="email"><br>
-<input type="radio" name="sex" checked> 남성
-<input type="radio" name="sex">여성<br><br>
-<input type="submit" value="송신">
-&nbsp
-<input type="reset" value="재입력">
+
+<form action="http://www.naver.com">
+    <table border="1">
+        <tr>
+            <td>이름</td><td><input type="text" name="irum"></td>
+        </tr>    
+        <tr>
+            <td>메일</td><td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="radio" name="sex" checked> 남성 <input type="radio" name="sex">여성</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="송신" onclick="document.write('onclick')"> <input type="reset" value="재입력"></td>
+        </tr>   
+    </table>
+</form>

@@ -1,22 +1,28 @@
 <html>
         <head>
-            <script>
-                total = 9 + 4;
-                alert("java script")
-                alert(total)
+            <script src="script01.js">
             </script>
+        
             <title>폼 양식 작성하기</title>
         </head>
         <body>
             <form action="home.html" method="post">
-                로그인 <br>
-                아이디 : <input name="id"><br>
-                비밀번호 : <input name="pwd"><br>
-                <input type="submit" value="로그인"><br>
-                <a href="join.html" ><input type="button" value="회원가입"></a><br>
-                <input type="reset" value="다시입력">
+                
+                <table border="1">
+                    <tr>
+                        <td>아이디 </td><td><input name="id"></td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호 </td><td><input name="pwd"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="로그인"> <input type="reset" value="다시입력"></td>
+                    </tr>
+                </table>
 
             </form>
-
+            <script>
+                document.write("inner code");
+            </script>
         </body>
 </html>
