@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("h2").click(function(){
+                $(this).hide();
+            })
+            $("h3").click(function(){
+                $("h2").show();
+            })
+            $("#button1").click(function(){
+                $("h2").show();
+            })
+            $("#button2").click(function(){
+                $("h2").hide();
+            })
+        });
+
+        
+    </script>
+    </head>
+    <body>
+        <h2>클릭하면 사라집니다</h2>
+        <h3>클릭하면 나타납니다</h3>
+        <button id="button1">켜기</button>
+        <button id="button2">끄기</button>
+    </body>
+</html>
