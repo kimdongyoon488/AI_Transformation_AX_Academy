@@ -16,6 +16,11 @@ for i in range (x.shape[1]):
         
 print("반복문 사용 코드의 속도 :" , (time.time()-t1) * 1000, "ms")
 
+print("==========")
+
+
 t2 = time.time()
 Z = np.dot(w.T,x)
 print("Vectorization 코드의 속도 :", (time.time()-t2) * 1000, "ms")
+
+
