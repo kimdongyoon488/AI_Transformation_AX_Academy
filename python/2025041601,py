@@ -14,11 +14,35 @@ import matplotlib.pyplot as plt
 
 data = np.array([1,2,3,4])
 labels = ["A" , "B", "C", "D"]
-plt.pie(data, labels = labels)
-plt.title("PIE Chart")
+#plt.pie(data, labels = labels)
+#plt.title("PIE Chart")
 #plt.xlabel("xlabel")
 #plt.ylabel("ylabel")
+#plt.show()
+
+
+#한글 title
+
+
+x = np.arange(10)
+y = np.arange(10 , 20)
+#plt.plot(x,y)
+#plt.title("한글 그래프")
+#plt.show()
+
+
+
+#import matplotlib.font_manager as fm
+#for font in fm.fontManager.ttflist:
+#    print(font)
+
+#plt.rcParams["font.family"] = "NanumGothic"
+
+cat = plt.imread("python\cat.jpg")
+print(cat)
+plt.imshow(cat)
 plt.show()
+
 
 
 
