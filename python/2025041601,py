@@ -1,0 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+#x = np.array([1,2,3,4])
+#plt.plot(x)
+#plt.show()
+#plt.plot(x, x**2)
+
+#x = np.arange(0,5,0.2)
+#plt.plot(x, x**2, "ro")
+#plt.plot(x, x**3, "b^")
+#plt.plot(x, x**4, "gs")
+#plt.show()
+
+data = np.array([1,2,3,4])
+labels = ["A" , "B", "C", "D"]
+plt.pie(data, labels = labels)
+plt.title("PIE Chart")
+#plt.xlabel("xlabel")
+#plt.ylabel("ylabel")
+plt.show()
+
+
+
+
+
+
