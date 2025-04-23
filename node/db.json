@@ -1,0 +1,9 @@
+{
+    "posts":[
+        {"id":"1","title":"hi"},
+        {"id":"2","title":"hi2"}
+    ],
+    "profile":{
+        "name" : "typecode"
+    }
+}

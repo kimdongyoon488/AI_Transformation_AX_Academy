@@ -46,6 +46,31 @@
                     }
                 }
             }
+
+            function doRestUrl(url) {
+                httpRequest = getXMLHttpRequest();
+                httpRequest.open("GET", url, true);
+                httpRequest.onload = function () {
+                    if (httpRequest.status === 200) {
+                        const data = JSON.parse(httpRequest.responseText);
+                        let result = "";
+
+                        for(let i = 0; i < data.length; i++){
+                            result += "아이디 " + data[i].id + "\n제목: " + data[i].title + "\n\n"; 
+                        }
+                        alert(result);
+                    } else {
+                    alert("API 요청 실패: " + xhr.status);
+                    }
+                };
+                httpRequest.onerror = function () {
+                    alert("네트워크 오류가 발생했습니다.");
+                };
+
+                httpRequest.send(null);
+            }
+
+
         </script>
     </head>
     <body>
@@ -53,7 +78,7 @@
                 <tr align="center">
                     <td><input type="button" value="enc.txt" onclick="doConnect('enc.txt')"/></td>
                     <td><input type="button" value="enc2.txt" onclick="doConnect('enc2.txt')"/></td>
-                    <td><input type="button" value="enc.jsp" onclick="doConnect('enc.jsp')"/></td>
+                    <td><input type="button" value="http://localhost:3000/posts" onclick="doRestUrl('http://localhost:3000/posts')"/></td>
                     <td><input type="button" value="enc2.jsp " onclick="doConnect('enc2.jsp')"/></td>
                 </tr>
                 <tr align="center">
