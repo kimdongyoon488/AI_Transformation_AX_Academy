@@ -37,6 +37,7 @@
 
                 httpRequest.send(null);
             }
+            
             function cbConnect() {
                 if (httpRequest.readyState == 4) {
                     if (httpRequest.status == 200) {
@@ -78,7 +79,7 @@
                 <tr align="center">
                     <td><input type="button" value="http://localhost:3000/posts" onclick="doRestUrl('http://localhost:3000/posts')"/></td>
                     <td><input type="button" value="enc2.jsp " onclick="doConnect('enc2.jsp')"/></td>
-                    
+
                 </tr>
                 <tr align="center">
                     <td>UTF-8</td>
