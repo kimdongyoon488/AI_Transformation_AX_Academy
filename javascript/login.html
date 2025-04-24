@@ -1,29 +1,27 @@
 <html>
         <head>
-            <script src="script01.js">
-            </script>
             <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         
-            <title>폼 양식 작성하기</title>
+            <title>login</title>
         </head>
         <body>
-            <form action="home.html" method="post">
+            <!-- <form action="home.html" method="post"> -->
                 
                 <table border="1">
                     <tr>
-                        <td>아이디 </td><td><input name="id"></td>
+                        <td>id </td><td><input id="id"></td>
                     </tr>
                     <tr>
-                        <td>비밀번호 </td><td><input name="pwd"></td>
+                        <td>pw </td><td><input id="pw"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input type="submit" value="로그인"> <input type="reset" value="다시입력"></td>
+                        <td colspan="2"><button onclick="login()">login</button> <input type="reset" value="reset"></td>
                     </tr>
                 </table>
 
-            </form>
+            <!-- </form> -->
             <script>
-                document.write("inner code");
+
                 $(document).ready(function(){
                     $("input").focus(function(){
                         $(this).css("background-color", "yellow");
@@ -33,6 +31,40 @@
                         $(this).css("background-color", "white");
                     });
                 })
+                
+                function login() {
+                    
+                    const id = document.getElementById("id").value;
+                    const pw = document.getElementById("pw").value;
+
+                    const httpRequest = new XMLHttpRequest();
+                    httpRequest.open("GET", "http://localhost:3000/user", true);
+
+                    httpRequest.onload = function () {
+                        if (httpRequest.status === 200) {
+                            const users = JSON.parse(httpRequest.responseText);
+                            const foundUser = users.find(user => user.id === id);
+
+                            if (!foundUser) {
+                                alert("id fail");
+                            } else if (foundUser.pw !== pw) {
+                                alert("pw fail");
+                            } else {
+                                alert("login success");
+                            }
+                            } else {
+                            alert("서버 오류 발생: " + httpRequest.status);
+                            }
+                        };
+                   
+                    httpRequest.onerror = function () {
+                        alert("네트워크 오류 발생");
+                    };
+
+                    httpRequest.send();
+
+                    }
+                   
             </script>
             
             
