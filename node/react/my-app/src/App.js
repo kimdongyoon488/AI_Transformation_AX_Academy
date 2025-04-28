@@ -1,12 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
+const tableStyle = {
+  backgroundColor :"yellow",
+  fontsize: "20px"
+};
+
+const welcome = {
+  greeting : 'Hey',
+  title: 'React',
+
+};
+
+function getTitle(title){
+  return title;
+};
+
+
 function App() {
   let names = ["아이디","비밀번호","로그인","다시입력"];
-  const tableStyle = {
-    backgroundColor :"yellow",
-    fontsize: "20px"
-  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -24,6 +37,7 @@ function App() {
         </a>
       </header>
       <div className="login-form">
+                <h1>{welcome.greeting} {getTitle('리액트')}</h1>              
                 <table border="1" style={tableStyle}>
                     <tr>
                         <td>{names[0]} </td><td><input id="id"/></td>
