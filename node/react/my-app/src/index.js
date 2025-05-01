@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App_20250501 from './App_20250501';
+import DateApp from './DateApp';
 
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App_20250501 />
+    <DateApp />
   </React.StrictMode>
 );
 
