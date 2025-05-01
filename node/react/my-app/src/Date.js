@@ -11,25 +11,27 @@ export class MyDate {
   
     getFormattedDate() {
         
-        // 조건 1 : 년 데이터가 음수거나 0이면 1년으로 처리
-        if(this.year <= 0){
+        // 조건 1. 년 데이터가 음수거나 0이면 1년으로 처리
+        if(this.year <= 0){ 
             this.year = 1
         }
 
-        // 조건 2: 월 데이터가 음수거나 0값이면 1월로 처리하고 월의 범위를 벗어나면 12월로 처리
+        // 조건 2-1. 월 데이터가 음수거나 0이면 1월로 처리
+        // 조건 2-2.  월이 13월 이상으로 입력되면 12월로 처리
         if(this.month <= 0 ){
             this.month = 1
-        } else if(this.month > 12){
+        } else if(this.month > 12){ 
             this.month = 12
         }
 
-        // 조건 3: 일 데이터가 음수거나 0값이면 1일로 처리하고 일의 범위를 벗어나면 마지막 일로 처리
-        // (윤년일때는 2월은 29일까지 화면에 출력 가능하도록 처리)
+        // 조건 3-1. 일 데이터가 음수거나 0이면 1월로 처리
+        // 조건 3-2. 일이 입력된 월의 최대일을 벗어나면 입력된 월의 최대 일로 처리
         if(this.day <= 0 ){
             this.day = 1
-        }else if(this.daysInMonth[(this.month - 1)] < this.day){
+        }else if(this.daysInMonth[(this.month - 1)] < this.day){ 
             this.day = this.daysInMonth[(this.month - 1)]
         }
+
         return `${this.year}년 ${this.month}월 ${this.day}일`;
     }
   
