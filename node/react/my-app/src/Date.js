@@ -5,10 +5,15 @@ export class MyDate {
       this.year = year;
       this.month = month;
       this.day = day;
-      this.daysInMonth = [31, this.isLeapYear(year) ? 29 : 28, 31, 30, 
-        31, 30, 31, 31, 30, 31, 30, 31]
     }
-  
+
+    get daysInMonth() {
+      return [
+        31, this.isLeapYear() ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+      ];
+    }
+
+
     getFormattedDate() {
         
         // 조건 1. 년 데이터가 음수거나 0이면 1년으로 처리
