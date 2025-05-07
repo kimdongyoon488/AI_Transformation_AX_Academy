@@ -1,0 +1,1 @@
+C:\Users\kdy94\vocational training\fast\venv\myapp\Scripts/activate
