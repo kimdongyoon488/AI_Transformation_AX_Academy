@@ -28,6 +28,7 @@ html = """
     };
  function sendMessage(event) {
     var input = document.getElementById("messageText")
+    console.log(ws)
     ws.send(input.value)
     input.value = ''
     event.preventDefault()
@@ -41,12 +42,28 @@ html = """
 async def get():
  return HTMLResponse(html)
 
+
+
+clients = []
+
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
  await websocket.accept()
+ clients.append(websocket)
+
  while True:
     data = await websocket.receive_text()
-    await websocket.send_text(f"Message text was: {data}")
+    disconnected = []
+    for client in clients:
+         try:
+            await client.send_text(f"Message text was: {data}")
+         #await websocket.send_text(f"Message text was: {data}")
+         except:
+                disconnected.append(client)
+
+    for dc in disconnected:
+       clients.remove(dc)
 
 @app.post("/")
 def read_root():
