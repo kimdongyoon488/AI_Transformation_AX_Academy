@@ -18,6 +18,7 @@ insert into emp values(1,"홍길동",01012341234);
 
 insert into emp values(2,"고길동",01054325432);
 
+
 delete from emp where empId =2;
 
 update emp set name = "김희동" where empId= 1;
@@ -30,26 +31,28 @@ create table memberTbl(
 	memberAddress varchar(200)
 );
 
-insert into memberTbl values("Dang","당탕이", "경기 부천시 중동");
-
-select * from memberTbl;
 
 alter table memberTbl add column rg_date DATETIME DEFAULT CURRENT_TIMESTAMP;
 
-CREATE TABLE userTBL (
-  userName VARCHAR(3) NOT NULL PRIMARY KEY,
-  birthYear INT NOT NULL,
-  addr VARCHAR(2) NOT NULL,
-  mobile VARCHAR(12)
-);
+insert into memberTbl(memberId, memberName, memberAddress) values("1","당탕이", "경기 부천시 중동");
 
-CREATE TABLE buyTBL (
-  userName VARCHAR(3) NOT NULL,
+insert into memberTbl(memberId, memberName, memberAddress) values("2","김동윤", "경기 광주시");
+
+insert into memberTbl(memberId, memberName, memberAddress) values("3","김철수", "전남 광주시");
+
+insert into memberTbl(memberId, memberName, memberAddress) values("4","훈이", "서울시");
+
+select * from memberTbl;
+
+CREATE TABLE buyTbl (
+  buyTblId INT AUTO_INCREMENT PRIMARY KEY,
+  memberId VARCHAR(3) NOT NULL,
   prodName VARCHAR(3) NOT NULL,
   price INT NOT NULL,
   amount INT NOT NULL,
-  FOREIGN KEY (userName) REFERENCES userTBL(userName)
+  FOREIGN KEY (memberId) REFERENCES memberTbl(memberId)
 );
+
 
 
 
