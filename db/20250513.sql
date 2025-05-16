@@ -54,3 +54,37 @@ SELECT CONCAT('(', v, ')'), CONCAT('(', c, ')') FROM vc;
 
 SELECT memberId, SUM(amount) as '제품 수' FROM buyTbl
 GROUP BY memberId;
+
+
+-- 회원별 구매내역
+SELECT 
+  m.memberId,
+  m.memberName,
+  b.prodName,
+  b.price,
+  b.amount,
+  (b.price * b.amount) AS totalPrice
+FROM memberTbl m
+JOIN buyTbl b ON m.memberId = b.memberId;
+
+
+-- 회원별 총 구매 금액 집계
+SELECT 
+  m.memberId,
+  m.memberName,
+  SUM(b.price * b.amount) AS totalSpent
+FROM memberTbl m
+JOIN buyTbl b ON m.memberId = b.memberId
+GROUP BY m.memberId, m.memberName;
+
+
+
+-- LEFT JOIN (구매내역 없는 회원도 포함해서 조회)
+SELECT 
+  m.memberId,
+  m.memberName,
+  b.prodName,
+  b.price,
+  b.amount
+FROM memberTbl m
+LEFT JOIN buyTbl b ON m.memberId = b.memberId;
