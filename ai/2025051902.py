@@ -3,6 +3,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+
+import pandas as pd
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+import scikitplot as skplt
 
 # 연습용 데이터셋 로드
 data = load_breast_cancer()
@@ -26,3 +33,14 @@ y_pred = model.predict(X_test)
 
 
 print("정확도:", accuracy_score(y_test, y_pred))
+
+
+
+#confusion_matrix
+# 예측한 결과와 실제 정답을 비교
+skplt.metrics.plot_confusion_matrix(y_test, y_pred,
+                                     figsize=(8,6))
+
+plt.show()
+
+
